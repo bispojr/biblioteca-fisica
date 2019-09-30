@@ -62,14 +62,26 @@ function emCadaPassoXY() {
 //------------------------------
 //Movimento UniformeRetilíneo Uniforme (MRU)
 //------------------------------
+
+//Queda livre com transferência completa de energia
 function quedaLivreYComPausa(){
+    bola.vy += bola.ay;
+    bola.y += bola.vy;
+
+    if (bola.y > canvas.height - bola.raio)
+        bola.y = canvas.height - bola.raio;
+
+    bola.desenhar(contexto);
+}
+//Queda Livre com transferência parcial de energia
+function quedaLivreYQuicando(){
     bola.vy += bola.ay;
     bola.y += bola.vy;
 
     if (bola.y <= canvas.height - bola.raio){
         bola.desenhar(contexto); // desenhe a bola    
     }else{
-        bola.vy = -bola.vy*0.8;
+        bola.vy = -bola.vy*0.8; //Coeficiente de restituição = 80%
         bola.y = canvas.height - bola.raio;
         bola.desenhar(contexto);
     }

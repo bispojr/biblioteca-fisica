@@ -12,6 +12,6 @@ bola.ay = 3/60;   //9,8 px/s²
 window.onload = init;
 
 function init() {
-    setInterval(emCadaPassoXY, 1000/60); // 60 fps
+    setInterval(emCadaPassoXComPausa, 1000/60); // 60 fps
 };
 
