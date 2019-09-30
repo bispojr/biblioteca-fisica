@@ -64,7 +64,7 @@ function emCadaPassoXY() {
 //------------------------------
 
 //Queda livre com transferência completa de energia
-function quedaLivreYComPausa(){
+function quedaLivreComPausa(){
     bola.vy += bola.ay;
     bola.y += bola.vy;
 
@@ -74,7 +74,7 @@ function quedaLivreYComPausa(){
     bola.desenhar(contexto);
 }
 //Queda Livre com transferência parcial de energia
-function quedaLivreYQuicando(){
+function quedaLivreQuicando(){
     bola.vy += bola.ay;
     bola.y += bola.vy;
 
