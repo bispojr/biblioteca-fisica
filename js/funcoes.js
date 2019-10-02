@@ -60,7 +60,7 @@ function emCadaPassoXY() {
 }
 
 //------------------------------
-//Movimento UniformeRetilíneo Uniforme (MRU)
+//Movimento Uniformemente Variado (MUV)
 //------------------------------
 
 //Queda livre com transferência completa de energia
@@ -85,4 +85,80 @@ function quedaLivreQuicando(){
         bola.y = canvas.height - bola.raio;
         bola.desenhar(contexto);
     }
+}
+//Lançamento oblíquo com transferência completa de energia
+function lancamentoObliquoComPausa(){
+    bola.vy += bola.ay;
+    bola.y += bola.vy;
+
+    bola.x += bola.vx;
+
+    if(bola.x > canvas.width - bola.raio){
+        bola.x = canvas.width - bola.raio;
+        
+        bola.ay = 0;
+        bola.vy = 0;
+    }
+
+    if (bola.y > canvas.height - bola.raio){
+        bola.y = canvas.height - bola.raio;
+
+        bola.vx = 0;
+    }
+
+    bola.desenhar(contexto);
+}
+//Lançamento oblíquo sem transferência de energia
+function lancamentoObliquo(){
+    bola.vy += bola.ay;
+    bola.y += bola.vy;
+
+    bola.x += bola.vx;
+
+    if(bola.x > canvas.width - bola.raio){
+        bola.x = canvas.width - bola.raio;
+        
+        bola.vx = -bola.vx;
+    }
+
+    if(bola.x < bola.raio){
+        bola.x = bola.raio;
+        
+        bola.vx = -bola.vx;
+    }
+
+    if (bola.y > canvas.height - bola.raio){
+        bola.y = canvas.height - bola.raio;
+
+        bola.vy = -bola.vy;
+    }
+
+    bola.desenhar(contexto);
+}
+//Lançamento oblíquo sem transferência de energia
+function lancamentoObliquoPerdaParcial(){
+    bola.vy += bola.ay;
+    bola.y += bola.vy;
+
+    bola.x += bola.vx;
+
+    if(bola.x > canvas.width - bola.raio){
+        bola.x = canvas.width - bola.raio;
+        
+        bola.vx = -bola.vx*0.9; //Coeficiente de restituição
+    }
+
+    if(bola.x < bola.raio){
+        bola.x = bola.raio;
+        
+        bola.vx = -bola.vx*0.9; //Coeficiente de restituição
+    }
+
+    if (bola.y > canvas.height - bola.raio){
+        bola.y = canvas.height - bola.raio;
+
+        bola.vy = -bola.vy*0.9; //Coeficiente de restituição
+    }
+
+    bola.desenhar(contexto);
 }

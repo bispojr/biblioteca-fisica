@@ -20,6 +20,11 @@ function inicializar(valor){
             bolaTopoEsquerdo(30);
             bola.vx = 120/60;   //120 px/s
             break;
+        case "emCadaPassoXY":
+            bolaTopoEsquerdo(30);
+            bola.vx = 30/60;   //120 px/s
+            bola.vy = 40/60;   //120 px/s
+            break;
         case "quedaLivreComPausa":
             bolaTopoEsquerdo(30);
             bola.vy = 0/60;  // 0 px/s
@@ -29,6 +34,24 @@ function inicializar(valor){
         case "quedaLivreQuicando":
             bolaBaseEsquerda(30);
             bola.vy = -500/60;  // -500 px/s
+            bola.ay = 3/60;   //3 px/s²*
+            break;
+        case "lancamentoObliquoComPausa":
+            bolaBaseEsquerda(30);
+            bola.vx = 250/60;  // 30 px/s
+            bola.vy = -300/60;  // 30 px/s
+            bola.ay = 3/60;   //3 px/s²*
+            break;
+        case "lancamentoObliquo":
+            bolaBaseEsquerda(30);
+            bola.vx = 250/60;  // 30 px/s
+            bola.vy = -300/60;  // 30 px/s
+            bola.ay = 3/60;   //3 px/s²*
+            break;
+        case "lancamentoObliquoPerdaParcial":
+            bolaBaseEsquerda(30);
+            bola.vx = 250/60;  // 30 px/s
+            bola.vy = -300/60;  // 30 px/s
             bola.ay = 3/60;   //3 px/s²*
             break;
     }
