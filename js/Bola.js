@@ -8,7 +8,6 @@ function Bola(raio, cor) {
 }
 
 Bola.prototype.desenhar = function (contexto) {
-    contexto.clearRect(0, 0, canvas.width, canvas.height);
     contexto.fillStyle = this.cor;
     contexto.beginPath();
     contexto.arc(this.x, this.y, this.raio, 0, 2 * Math.PI, true);

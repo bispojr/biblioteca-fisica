@@ -16,6 +16,10 @@ function bolaBaseEsquerda(margem) {
 function inicializar(valor){
     
     switch(valor){
+        case "emCadaPasso":
+            bolaTopoEsquerdo(30);
+            bola.vy = 120/60;   
+            break;
         case "emCadaPassoXComPausa":
             bolaTopoEsquerdo(30);
             bola.vx = 120/60;   //120 px/s

@@ -10,6 +10,23 @@ function emCadaPassoXComPausa() {
         bola.desenhar(contexto); // desenhe a bola    
     }
 }
+
+//MRU horizontal sem pausa (cíclico)
+function emCadaPasso() {
+    bola.y += bola.vy; 
+
+    if (bola.y > canvas.height - bola.raio){ // se a bola vai para além da região do canvas
+        bola.y = canvas.height - bola.raio; 
+        bola.vy = -bola.vy;
+    }
+    if (bola.y < bola.raio){ // se a bola vai para além da região do canvas
+        bola.y = bola.raio; 
+        bola.vy = -bola.vy;
+    }
+
+    bola.desenhar(contexto); // desenhe a bola    
+}
+
 //MRU horizontal sem pausa (cíclico)
 function emCadaPassoX() {
     bola.x += bola.vx; 
@@ -160,5 +177,16 @@ function lancamentoObliquoPerdaParcial(){
         bola.vy = -bola.vy*0.9; //Coeficiente de restituição
     }
 
+    var a = Math.abs(boneco.corpo.y - bola.y);
+    var b = Math.abs(boneco.corpo.x - bola.x);
+    var c = boneco.corpo.raio + bola.raio;
+
+
+    if(c <= Math.sqrt(a*a + b*b)){
+        bola.vx = -bola.vx*0.9;
+    }
+
+    contexto.clearRect(0, 0, canvas.width, canvas.height);
+    boneco.desenhar(contexto);
     bola.desenhar(contexto);
 }
