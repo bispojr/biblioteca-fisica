@@ -181,8 +181,23 @@ function lancamentoObliquoPerdaParcial(){
     var b = Math.abs(boneco.corpo.x - bola.x);
     var c = boneco.corpo.raio + bola.raio;
 
+    if(c >= Math.sqrt(a*a + b*b)){
+        
+        a = Math.abs(boneco.corpo.y - bola.y);  //Atualizar o y
+        bola.x = boneco.corpo.x - Math.sqrt(c*c-a*a);
 
-    if(c <= Math.sqrt(a*a + b*b)){
+        bola.vx = -bola.vx*0.9;
+    }
+
+    a = Math.abs(boneco.cabeca.y - bola.y);
+    b = Math.abs(boneco.cabeca.x - bola.x);
+    c = boneco.cabeca.raio + bola.raio;
+
+    if(c >= Math.sqrt(a*a + b*b)){
+        
+        a = Math.abs(boneco.cabeca.y - bola.y);  //Atualizar o y
+        bola.x = boneco.cabeca.x - Math.sqrt(c*c-a*a);
+
         bola.vx = -bola.vx*0.9;
     }
 
